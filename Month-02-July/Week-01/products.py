@@ -19,8 +19,20 @@ def get_by_category(category):
     rows = cursor.fetchall()
     conn.close()
     return rows
-    
+
 products = get_by_category('fruits')
 for product in products:
     print(product)
     print("-------\n")
+
+# function that returns all products above a given price, and sorted by desc price
+def get_expensive(min_price):
+    conn = sqlite3.connect("july_learning.db")
+    cursor = conn.cursor()
+
+    cursor.execute('SELECT * FROM products WHERE price > ? ORDER BY price DESC', (min_price,))
+    rows = cursor.fetchall()
+    conn.close()
+    return rows
+products = get_expensive(51)
+print(products)
