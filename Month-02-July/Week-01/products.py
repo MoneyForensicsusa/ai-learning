@@ -9,3 +9,18 @@ def add_product(name, price, category):
     conn.commit()
     conn.close()
 add_product('orange_juice', 50, 'fruits')
+
+# function that reyurns all products in a particular category as a list of tuples
+def get_by_category(category):
+    conn = sqlite3.connect("july_learning.db")
+    cursor = conn.cursor()
+
+    cursor.execute('SELECT * FROM products WHERE category = ?', (category,))
+    rows = cursor.fetchall()
+    conn.close()
+    return rows
+    
+products = get_by_category('fruits')
+for product in products:
+    print(product)
+    print("-------\n")
