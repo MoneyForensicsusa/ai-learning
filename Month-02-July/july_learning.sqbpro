@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/WonderfulEyeh/OneDrive - ALINEDS/AI ENGINEERING AND CLOUD PLAN/AI-Learning/july_learning.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="719"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="students" custom_title="0" dock_id="2" table="4,8:mainstudents"/><dock_state state="000000ff00000000fd00000001000000020000000000000000fc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000ffffffff0000011e00ffffff000000000000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1*">SELECT name FROM sqlite_master WHERE type='table';
+
+CREATE TABLE courses (
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL
+);
+
+INSERT INTO courses (name) VALUES ('Mathematics');
+INSERT INTO courses (name) VALUES ('Data Science');
+INSERT INTO courses (name) VALUES ('Cloud Computing');
+INSERT INTO courses (name) VALUES ('AI Engineering');
+
+CREATE TABLE grades (
+    id INTEGER PRIMARY KEY,
+    student_id INTEGER,
+    subject TEXT,
+    grade INTEGER
+);
+
+INSERT INTO grades (student_id, subject, grade) VALUES (1, 'Python', 92);
+INSERT INTO grades (student_id, subject, grade) VALUES (2, 'SQL', 88);
+INSERT INTO grades (student_id, subject, grade) VALUES (3, 'Azure', 75);
+
+SELECT * FROM students;
+
+INSERT INTO students (name, city, score) VALUES ('Wonderful', 'Austin', 92);
+INSERT INTO students (name, city, score) VALUES ('Davids', 'Austin', 99);
+INSERT INTO students (name, city, score) VALUES ('Alicia', 'Austin', 92);
+INSERT INTO students (name, city, score) VALUES ('Joel', 'Houston', 20);
+INSERT INTO students (name, city, score) VALUES ('Erica', 'Dallas', 33);
+INSERT INTO students (name, city, score) VALUES ('Jean', 'SanAntonio', 77);
+INSERT INTO students (name, city, score) VALUES ('Abel', 'Toronto', 93);
+INSERT INTO students (name, city, score) VALUES ('Jon', 'Arlington', 85);
+
+SELECT COUNT(*) FROM students;
+
+-- Average score across all students
+SELECT AVG(score) FROM students;
+
+-- Max and Min scores
+SELECT MAX(score), MIN(score) FROM students;
+
+-- Count of students per city
+SELECT city, COUNT(*) AS student_count
+FROM students
+GROUP BY city;
+
+--Average score per city, highest first
+SELECT city, AVG(score) AS Average_score
+FROM students
+GROUP BY city
+ORDER BY Average_score DESC;
+
+-- Having only cities with more than 1 student
+SELECT city, COUNT(*) AS Student_count
+FROM students
+GROUP BY city
+HAVING Student_count &gt; 1;
+
+-- Highest score per city
+SELECT city, MAX(score) AS Highest_score
+FROM students
+GROUP BY city
+
+SELECT courses.name, COUNT(*) AS student_count
+FROM students  LEFT JOIN courses ON courses.id = students.id
+GROUP BY courses.name;
+
+-- Query that finds cities where avg score is above 85
+SELECT city, AVG(score) AS average_score
+FROM students
+GROUP BY city
+HAVING average_score &gt; 85;
+
+-- query that shows: course name, no of students in that course, average score of those students, Max score , min score, and sorted by avg score DESC
+SELECT courses.name AS Course_name, 
+Count(*) AS Number_of_students, 
+AVG(score) AS Average_score,
+MAX(score) AS Highest_score,
+MIN(score) AS Lowest_score
+FROM courses INNER JOIN students 
+ON courses.id = students.course_id
+GROUP BY Course_name
+ORDER BY Average_score DESC;
+
+SELECT * FROM students;
+
+ALTER TABLE students ADD COLUMN course_id INTEGER;
+UPDATE students SET course_id = 4 WHERE id = 1;
+UPDATE students SET course_id = 3 WHERE id = 2;
+UPDATE students SET course_id = 2 WHERE  
+
+
+</sql><current_tab id="0"/></tab_sql></sqlb_project>

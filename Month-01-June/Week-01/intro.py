@@ -1,0 +1,5 @@
+print("Ifechukwu Wonderful Eyeh")
+print("Austin, TX")
+print("Technology Consultant")
+print("AI Engineering and Cloud")
+print("I am learning it so i can be a valauble resource in upcoming projects for ALINEDS")
