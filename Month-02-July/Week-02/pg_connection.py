@@ -25,4 +25,14 @@ rows = cursor.fetchall()
 for row in rows:
     print(f'ID: {row[0]}, Name: {row[1]}, City: {row[2]}')
 
+cursor.execute('''
+    SELECT customers.name, products.name, orders.quantity
+    FROM orders
+    INNER JOIN customers ON orders.customer_id = customers.id
+    INNER JOIN products ON orders.product_id = products.id
+''')
+for row in cursor.fetchall():
+    print(row)
+
 conn.close()
+
