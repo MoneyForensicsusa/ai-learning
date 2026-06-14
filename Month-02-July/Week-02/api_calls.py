@@ -40,3 +40,5 @@ try:
         print(f'Unexpected status: {response.status_code}')
 except requests.exceptions.ConnectionError:
     print("Cannot connect - check your internet")
+
+

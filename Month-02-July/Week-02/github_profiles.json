@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Linus Torvalds",
+    "bio": null,
+    "follower count": 307198
+  },
+  {
+    "name": "Guido van Rossum",
+    "bio": null,
+    "follower count": 26350
+  },
+  {
+    "name": "Sebasti\u00e1n Ram\u00edrez",
+    "bio": "Creator of FastAPI, Typer, SQLModel, Asyncer, etc. \ud83d\ude80\r\nFrom \ud83c\udde8\ud83c\uddf4 in \ud83c\udde9\ud83c\uddea. \r\nOpen Source, Python, APIs, AI. \ud83e\udd16 Building FastAPI Cloud. \u26a1\ufe0f",
+    "follower count": 31458
+  },
+  {
+    "name": "Yohei Nakajima",
+    "bio": "I don't know what I'm doing here, don't judge me.",
+    "follower count": 2227
+  },
+  {
+    "name": null,
+    "bio": null,
+    "follower count": 0
+  }
+]
