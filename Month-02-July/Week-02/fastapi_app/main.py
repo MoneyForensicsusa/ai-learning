@@ -49,20 +49,29 @@ def create_student(student: Student):
             conn.commit()
         return {'id': new_id, 'name': student.name, 'city': student.city, 'score': student.score}
     except psycopg2.OperationalError as e:
-        return HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail=str(e))
 
-@app.delete('/students/{student_id}')
-def delete_student(student_id: int):
+@app.get('/students/stats')
+def get_students_stats():
     try:
         with get_db() as conn:
             cursor = conn.cursor()
-            cursor.execute('DELETE FROM students WHERE id = %s', (student_id,))
-            if cursor.rowcount == 0:
-                raise HTTPException(status_code=404, detail='Student not found')
-            conn.commit()
-        return {'message': f'Student {student_id} deleted'}
+            cursor.execute('''
+                SELECT COUNT(*) as count,
+                AVG(score) as average, 
+                MAX(score) as highest, 
+                MIN(score) as lowest 
+                FROM students''')
+            row = cursor.fetchone()
+        return {
+            'count': row[0],
+            'average': round(row[1], 2) if row[1] else 0,
+            'maximum': row[2],
+            'minimum': row[3]
+        }
     except psycopg2.OperationalError as e:
-        return HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail=str(e))
+
 
 @app.get('/students/city/{city}')
 def students_from_city(city: str):
@@ -81,6 +90,22 @@ def students_from_city(city: str):
     except psycopg2.OperationalError as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+
+@app.delete('/students/{student_id}')
+def delete_student(student_id: int):
+    try:
+        with get_db() as conn:
+            cursor = conn.cursor()
+            cursor.execute('DELETE FROM students WHERE id = %s', (student_id,))
+            if cursor.rowcount == 0:
+                raise HTTPException(status_code=404, detail='Student not found')
+            conn.commit()
+        return {'message': f'Student {student_id} deleted'}
+    except psycopg2.OperationalError as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+
 @app.put('/students/{student_id}')
 def update_student_score(student_id: int, update: ScoreUpdate):
     try:
@@ -92,5 +117,5 @@ def update_student_score(student_id: int, update: ScoreUpdate):
             conn.commit()
             return {'message': f'Student {student_id} score updaed', 'new_score': update.score}
     except psycopg2.OperationalError as e:
-        return HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail=str(e))
 
