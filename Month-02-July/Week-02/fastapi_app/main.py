@@ -23,6 +23,10 @@ class Student(BaseModel):
 class ScoreUpdate(BaseModel):
     score: int = Field(ge=0, le=100)
 
+@app.get('/health')
+def health_check():
+    return {'status': 'ok'}
+
 @app.get('/students')
 def get_all_students():
     try:
@@ -104,7 +108,23 @@ def delete_student(student_id: int):
     except psycopg2.OperationalError as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-
+@app.get('/students/{student_id}')
+def get_student(student_id: int):
+    try:
+        with get_db() as conn:
+            cursor = conn.cursor()
+            cursor.execute('SELECT id, name, city, score FROM students WHERE id = %s', (student_id,))
+            row = cursor.fetchone()
+        if row is None:
+            raise HTTPException(status_code=404, detail='student not found')
+        return {
+            'id': row[0],
+            'name': row[1],
+            'city': row[2],
+            'score': row[3]
+        }
+    except psycopg2.OperationalError as e:
+        return HTTPException(status_code=500, detail=str(e))
 
 @app.put('/students/{student_id}')
 def update_student_score(student_id: int, update: ScoreUpdate):
