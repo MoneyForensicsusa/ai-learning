@@ -39,6 +39,45 @@ def test_create_and_retreive():
     assert second_response.status_code == 200
     assert second_response.json()['name'] == 'Alice'
     
+# Test for deleting a student
+def test_delete_student():
+    data = {'name': 'Anny', 'city': 'Dallas', 'score': 97}
+    first_response = client.post('/students', json=data)
+    created = first_response.json()
+    student_id = created['id']
+    delete_response = client.delete(f'/students/{student_id}')
+    assert delete_response.status_code == 200
+    get_response = client.get(f'/students/{student_id}')
+    assert get_response.status_code == 404
 
+#Test for sending missing data
+def test_sending_missing_data():
+    data = {}
+    response = client.post('/students', json=data)
+    assert response.status_code == 422
 
+# Test that verifies the stats endpoint returns correct values
+def test_stats_verification():
+    students = [
+        {'name': 'jose', 'city': 'NY', 'score': 20},
+        {'name': 'Aba', 'city': 'CA', 'score': 50},
+        {'name': 'Uche', 'city': 'ATL', 'score': 20}
+    ]
+    created_ids = []
+    for student in students:
+        response = client.post('/students', json=student)
+        created_ids.append(response.json()['id'])
+    
+    stats_response = client.get('/students/stats')
+    assert stats_response.status_code == 200
+    data = stats_response.json()
+    assert data['count'] >= 3
+    assert data['average'] >= 30.0
+    assert data['maximum'] >=  50
+    assert data['minimum'] <= 20
 
+    for student_id in created_ids:
+        client.delete(f'/students/{student_id}')
+
+    
+    
