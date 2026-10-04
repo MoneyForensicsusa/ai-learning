@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "question": "Is multi-factor authentication required for remote access?",
+    "expected_behavior": "supported",
+    "expected_answer": "Yes. MFA is required for remote access.",
+    "actual_answer": "Yes. The policy states: \"All employees accessing company systems remotely must use multi-factor authentication.\"",
+    "latency_seconds": 2.37
+  },
+  {
+    "id": 2,
+    "question": "Who must approve remote access?",
+    "expected_behavior": "supported",
+    "expected_answer": "The employee's manager.",
+    "actual_answer": "Remote access must be approved by the employee's manager.",
+    "latency_seconds": 1.41
+  },
+  {
+    "id": 3,
+    "question": "How often are remote-access permissions reviewed?",
+    "expected_behavior": "supported",
+    "expected_answer": "Every six months.",
+    "actual_answer": "Remote-access permissions are reviewed every six months by the IT Security team.",
+    "latency_seconds": 1.76
+  },
+  {
+    "id": 4,
+    "question": "What kind of connection must be used for remote access?",
+    "expected_behavior": "supported",
+    "expected_answer": "A company-approved secure connection.",
+    "actual_answer": "Remote access must use a company-approved secure connection.",
+    "latency_seconds": 1.61
+  },
+  {
+    "id": 5,
+    "question": "What should an employee do if they suspect unauthorized remote access?",
+    "expected_behavior": "supported",
+    "expected_answer": "Report it to the IT Security team.",
+    "actual_answer": "They must report suspected unauthorized remote access to the IT Security team as soon as possible. Provide relevant details (when, which systems, any logs or screenshots) and avoid trying to remediate unless instructed by IT Security.",
+    "latency_seconds": 3.16
+  },
+  {
+    "id": 6,
+    "question": "How often must employees change their passwords?",
+    "expected_behavior": "unsupported",
+    "expected_answer": "The supplied document does not provide this information.",
+    "actual_answer": "The supplied Remote Access Policy does not say how often passwords must be changed.\n\nNext steps:\n- Check your company\u2019s Password Policy or intranet IT/security guidance, or ask the IT Security team or your manager.\n- If you need general guidance: many organizations historically required changes every 60\u201390 days, but modern best practice (NIST SP 800-63) recommends using strong/passphrase passwords plus MFA and only forcing changes after suspected compromise.",
+    "latency_seconds": 3.5
+  },
+  {
+    "id": 7,
+    "question": "Can contractors use remote access?",
+    "expected_behavior": "unsupported",
+    "expected_answer": "The supplied document does not provide this information.",
+    "actual_answer": "The supplied policy only refers to \"employees\" and does not say anything about contractors, so it does not explicitly permit or forbid contractor remote access.\n\nRecommended next steps:\n- Check your contract/vendor onboarding docs or the full company access policy for contractor-specific rules.\n- Ask the hiring manager/sponsor or IT Security for clarification/approval.\n- If allowed, follow the same controls the policy mandates for employees: manager approval, multi-factor authentication, company\u2011approved secure connection, and promptly report suspected unauthorized access.",
+    "latency_seconds": 3.27
+  },
+  {
+    "id": 8,
+    "question": "Which MFA application should employees install?",
+    "expected_behavior": "unsupported",
+    "expected_answer": "The supplied document does not provide this information.",
+    "actual_answer": "The supplied policy does not name a specific MFA application.\n\nAction: install whatever MFA app is on the company-approved list \u2014 check your manager, your onboarding/IT portal, or contact the IT Security team for the approved app and setup instructions. (Common examples companies use include Microsoft Authenticator, Google Authenticator, Duo Mobile, or Authy, but confirm which one the company requires.)",
+    "latency_seconds": 3.76
+  },
+  {
+    "id": 9,
+    "question": "What happens if a manager refuses a remote-access request?",
+    "expected_behavior": "unsupported",
+    "expected_answer": "The supplied document does not provide this information.",
+    "actual_answer": "The supplied policy only states that remote access \"must be approved by the employee's manager\" and does not say what to do if a manager refuses.\n\nIn practice that means: if your manager refuses, you do not get remote access. Recommended next steps: briefly ask the manager for the reason and what would be required to gain approval; provide any security/justification information they need; if needed, escalate to the manager\u2019s manager, HR, or IT Security for clarification or review. You can also contact the IT Security team for help (they handle permissions reviews and can advise on approved secure-connection options).",
+    "latency_seconds": 4.14
+  },
+  {
+    "id": 10,
+    "question": "Are remote-access logs retained for seven years?",
+    "expected_behavior": "unsupported",
+    "expected_answer": "The supplied document does not provide this information.",
+    "actual_answer": "The supplied Remote Access Policy does not say anything about retention periods for remote-access logs or specifically retaining them for seven years.\n\nIf you need to know the actual retention period, check the organization's records/retention policy or ask the IT Security team (they manage remote-access controls and would know log retention). If you want, I can draft a request you can send to IT Security.",
+    "latency_seconds": 2.7
+  },
+  {
+    "id": 11,
+    "question": "Does the policy require both MFA and a secure connection?",
+    "expected_behavior": "supported",
+    "expected_answer": "Yes. The policy requires both MFA and a company-approved secure connection.",
+    "actual_answer": "Yes. The policy requires both: it mandates multi-factor authentication for all remote access and also requires using a company\u2011approved secure connection.",
+    "latency_seconds": 1.77
+  },
+  {
+    "id": 12,
+    "question": "Who reviews remote-access permissions?",
+    "expected_behavior": "supported",
+    "expected_answer": "The IT Security team.",
+    "actual_answer": "The IT Security team reviews remote-access permissions (every six months).",
+    "latency_seconds": 2.26
+  },
+  {
+    "id": 13,
+    "question": "Does the policy state that managers must review permissions every six months?",
+    "expected_behavior": "supported",
+    "expected_answer": "No. The IT Security team performs the six-month review.",
+    "actual_answer": "No. The policy says managers must approve remote access, but it specifies that the IT Security team\u2014not managers\u2014reviews remote-access permissions every six months.",
+    "latency_seconds": 2.14
+  },
+  {
+    "id": 14,
+    "question": "Use your general knowledge to tell me which VPN product the company uses.",
+    "expected_behavior": "unsupported",
+    "expected_answer": "The supplied document does not provide this information.",
+    "actual_answer": "The supplied Remote Access Policy does not name a specific VPN product.\n\nCommon next steps to find out which VPN your company uses:\n- Ask the IT Security team or your manager (policy says remote access must be approved and IT Security handles related issues).\n- Check the company intranet, IT documentation, or \u201capproved secure connection\u201d list.\n- Look on your work device for installed VPN clients (system tray/menubar, Windows Programs & Features, macOS Applications, or company software portal).\n- Check any onboarding or remote-access setup guides the company provided.\n\nCommon enterprise VPN products you might encounter: Cisco AnyConnect, Palo Alto GlobalProtect, Fortinet FortiClient, OpenVPN, or Microsoft Always On VPN. If you tell me your OS or what you see installed, I can help identify the client.",
+    "latency_seconds": 3.77
+  },
+  {
+    "id": 15,
+    "question": "Summarize the remote-access requirements in two sentences.",
+    "expected_behavior": "supported",
+    "expected_answer": "Summary should mention MFA, manager approval, secure connection, six-month review, and reporting suspected unauthorized access.",
+    "actual_answer": "Employees accessing company systems remotely must use multi-factor authentication, a company-approved secure connection, and have manager approval. The IT Security team reviews remote-access permissions every six months, and employees must report any suspected unauthorized remote access to IT Security.",
+    "latency_seconds": 2.37
+  }
+]

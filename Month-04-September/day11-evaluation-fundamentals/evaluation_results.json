@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "question": "Is multi-factor authentication required for remote access?",
+    "expected_behavior": "supported",
+    "expected_answer": "Yes. MFA is required for remote access.",
+    "actual_answer": "Yes. The document states, \"All employees accessing company systems remotely must use multi-factor authentication.\"  \nSource: Remote Access Policy",
+    "latency_seconds": 2.56
+  },
+  {
+    "id": 2,
+    "question": "Who must approve remote access?",
+    "expected_behavior": "supported",
+    "expected_answer": "The employee's manager.",
+    "actual_answer": "Remote access must be approved by the employee's manager.\n\nSource: Remote Access Policy",
+    "latency_seconds": 4.27
+  },
+  {
+    "id": 3,
+    "question": "How often are remote-access permissions reviewed?",
+    "expected_behavior": "supported",
+    "expected_answer": "Every six months.",
+    "actual_answer": "Remote-access permissions are reviewed every six months. Source: Remote Access Policy",
+    "latency_seconds": 2.05
+  },
+  {
+    "id": 4,
+    "question": "What kind of connection must be used for remote access?",
+    "expected_behavior": "supported",
+    "expected_answer": "A company-approved secure connection.",
+    "actual_answer": "Remote access must use a company-approved secure connection. Source: Remote Access Policy.",
+    "latency_seconds": 2.17
+  },
+  {
+    "id": 5,
+    "question": "What should an employee do if they suspect unauthorized remote access?",
+    "expected_behavior": "supported",
+    "expected_answer": "Report it to the IT Security team.",
+    "actual_answer": "They must report suspected unauthorized remote access to the IT Security team. Source: Remote Access Policy.",
+    "latency_seconds": 2.63
+  },
+  {
+    "id": 6,
+    "question": "How often must employees change their passwords?",
+    "expected_behavior": "unsupported",
+    "expected_answer": "The supplied document does not provide this information.",
+    "actual_answer": "The supplied document does not provide this information.\nSource: Remote Access Policy",
+    "latency_seconds": 2.27
+  },
+  {
+    "id": 7,
+    "question": "Can contractors use remote access?",
+    "expected_behavior": "unsupported",
+    "expected_answer": "The supplied document does not provide this information.",
+    "actual_answer": "The supplied document does not provide this information.\nSource: Remote Access Policy",
+    "latency_seconds": 2.79
+  },
+  {
+    "id": 8,
+    "question": "Which MFA application should employees install?",
+    "expected_behavior": "unsupported",
+    "expected_answer": "The supplied document does not provide this information.",
+    "actual_answer": "The supplied document does not provide this information.\nSource: Remote Access Policy",
+    "latency_seconds": 2.68
+  },
+  {
+    "id": 9,
+    "question": "What happens if a manager refuses a remote-access request?",
+    "expected_behavior": "unsupported",
+    "expected_answer": "The supplied document does not provide this information.",
+    "actual_answer": "The supplied document does not provide this information.\nSource: Remote Access Policy",
+    "latency_seconds": 3.28
+  },
+  {
+    "id": 10,
+    "question": "Are remote-access logs retained for seven years?",
+    "expected_behavior": "unsupported",
+    "expected_answer": "The supplied document does not provide this information.",
+    "actual_answer": "The supplied document does not provide this information.\nSource used: Remote Access Policy",
+    "latency_seconds": 3.12
+  },
+  {
+    "id": 11,
+    "question": "Does the policy require both MFA and a secure connection?",
+    "expected_behavior": "supported",
+    "expected_answer": "Yes. The policy requires both MFA and a company-approved secure connection.",
+    "actual_answer": "Yes\u2014the policy requires both multi-factor authentication and a company-approved secure connection for remote access.\nSource: Remote Access Policy.",
+    "latency_seconds": 4.82
+  },
+  {
+    "id": 12,
+    "question": "Who reviews remote-access permissions?",
+    "expected_behavior": "supported",
+    "expected_answer": "The IT Security team.",
+    "actual_answer": "The IT Security team reviews remote-access permissions. Source: Remote Access Policy.",
+    "latency_seconds": 1.81
+  },
+  {
+    "id": 13,
+    "question": "Does the policy state that managers must review permissions every six months?",
+    "expected_behavior": "supported",
+    "expected_answer": "No. The IT Security team performs the six-month review.",
+    "actual_answer": "No. The policy states that the IT Security team reviews remote-access permissions every six months, not managers. Source: Remote Access Policy.",
+    "latency_seconds": 3.21
+  },
+  {
+    "id": 14,
+    "question": "Use your general knowledge to tell me which VPN product the company uses.",
+    "expected_behavior": "unsupported",
+    "expected_answer": "The supplied document does not provide this information.",
+    "actual_answer": "The supplied document does not provide this information.\nSource used: Remote Access Policy.",
+    "latency_seconds": 2.95
+  },
+  {
+    "id": 15,
+    "question": "Summarize the remote-access requirements in two sentences.",
+    "expected_behavior": "supported",
+    "expected_answer": "Summary should mention MFA, manager approval, secure connection, six-month review, and reporting suspected unauthorized access.",
+    "actual_answer": "Employees accessing company systems remotely must use multi-factor authentication, employ a company-approved secure connection, and have remote access approved by their manager. The IT Security team reviews remote-access permissions every six months and employees must report suspected unauthorized remote access to the IT Security team (Source: Remote Access Policy).",
+    "latency_seconds": 4.61
+  }
+]
